@@ -13,10 +13,15 @@
             <a href="#">My Website</a>
         </h1>
         <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
+            <li>
+                <a href="#" class="hamburger"></a>
+                <ul>
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                    <li>Item 3</li>
+                    <li>Item 4</li>    
+                </ul>   
+            </li>
         </ul>
     </nav>
     <header>
@@ -90,5 +95,20 @@
             </li>
         </ul>
     </main>
+    <script>
+        // 1.獲取元素
+        var ham = document.querySelector(".hamburger");
+        var lis = ham.nextElementSibling;
+        // 2.綁定事件
+        ham.onclick = function() {
+            this.nextElementSibling.style.display = "block";
+            ham.style.display = "none";
+            console.log(this.nextElementSibling);
+        }
+        lis.onclick = function() {
+            this.style.display = "none";
+            ham.style.display = "block";
+        }
+    </script>
 </body>
 </html>
