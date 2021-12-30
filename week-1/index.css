@@ -37,6 +37,18 @@ li {
         padding-right: 1rem;
         /* background-color: cadetblue; */
     }
+    .hamburger {
+        display: none;
+        position: absolute;
+        right: 0;
+        margin-right: .5rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        background: url(img/hamburger.png) no-repeat;
+        background-size: contain;
+        cursor: pointer;
+    }
+
     /* nav end */
 
     /* hearder start */
@@ -119,6 +131,17 @@ li {
         font-size: 1rem;
         padding-right: .5rem;
     }
+    .hamburger {
+        display: none;
+        position: absolute;
+        right: 0;
+        margin-right: .5rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        background: url(img/hamburger.png) no-repeat;
+        background-size: contain;
+        cursor: pointer;
+    }
     /* nav end */
 
     /* hearder start */
@@ -194,20 +217,25 @@ li {
         color: #000;
         font-size: 1rem;
     }
-    nav ul li {
+    nav ul li ul {
         display: none;
-        float: left;
-        font-size: 1rem;
-        /* display: none; */
     }
-    nav ul::after {
-        content: "";
+    nav ul li ul li {
         float: left;
+        padding-left: .5rem;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+    .hamburger {
+        position: absolute;
+        right: 0;
+        top: .2rem;
         margin-right: .5rem;
         width: 1.5rem;
         height: 1.5rem;
         background: url(img/hamburger.png) no-repeat;
         background-size: contain;
+        cursor: pointer;
     }
     /* nav end */
 
