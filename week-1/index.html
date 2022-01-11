@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rwdWebsite</title>
+    <link rel="stylesheet" href="index.css" />
+    <script>
+      // 1.獲取元素
+      window.onload = function () {
+        let ham = document.querySelector(".hamburger");
+        let lis = ham.nextElementSibling;
+        // 2.綁定事件
+        ham.onclick = function () {
+          this.nextElementSibling.style.display = "block";
+          ham.style.display = "none";
+          console.log(this.nextElementSibling);
+        };
+        lis.onclick = function () {
+          this.style.display = "none";
+          ham.style.display = "block";
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <nav>
+      <h1>
+        <a href="#">My Website</a>
+      </h1>
+      <ul>
+        <li>
+          <a href="#" class="hamburger"></a>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <header>
+      <div class="box">Welcome to MyHome</div>
+    </header>
+    <main>
+      <ul class="container">
+        <li>
+          <a href="#">
+            <img src="img/a.jpg" alt="" />
+          </a>
+          <span>
+            <i>Item 1</i>
+          </span>
+        </li>
+        <li>
+          <a href="#">
+            <img src="img/b.jpg" alt="" />
+          </a>
+          <span>
+            <i>Item 2</i>
+          </span>
+        </li>
+        <li>
+          <a href="#">
+            <img src="img/c.jpg" alt="" />
+          </a>
+          <span>
+            <i>Item 3</i>
+          </span>
+        </li>
+        <li>
+          <a href="#">
+            <img src="img/d.jpg" alt="" />
+          </a>
+          <span>
+            <i>Item 4</i>
+          </span>
+        </li>
+        <li>
+          <a href="#">
+            <img src="img/e.jpg" alt="" />
+          </a>
+          <span>
+            <i>Item 5</i>
+          </span>
+        </li>
+        <li>
+          <a href="#">
+            <img src="img/f.jpg" alt="" />
+          </a>
+          <span>
+            <i>Item 6</i>
+          </span>
+        </li>
+        <li>
+          <a href="#">
+            <img src="img/g.jpg" alt="" />
+          </a>
+          <span>
+            <i>Item 7</i>
+          </span>
+        </li>
+        <li>
+          <a href="#">
+            <img src="img/h.jpg" alt="" />
+          </a>
+          <span>
+            <i>Item 8</i>
+          </span>
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
