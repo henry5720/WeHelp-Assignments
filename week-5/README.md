@@ -17,8 +17,8 @@ CREATE TABLE `member`( -- 創建表格
 );
 DESCRIBE `member`; -- 查看表格 
 ```
-![CREATE DATABASE](/images/1.png)
-![CREATE DATABASE](/images/2.png)
+![CREATE DATABASE](https://github.com/henry5720/WeHelp-Assignments/blob/main/week-5/images/1.png)
+![CREATE DATABASE](https://github.com/henry5720/WeHelp-Assignments/blob/main/week-5/images/2.png)
 
 #### 要求三：SQL CRUD
 
@@ -61,12 +61,12 @@ UPDATE `member`
 SET `name` = 'test2'
 WHERE `username` = 'test';
 ```
-![CREATE DATABASE](/images/3.png)
-![CREATE DATABASE](/images/4.png)
-![CREATE DATABASE](/images/5.png)
-![CREATE DATABASE](/images/6.png)
-![CREATE DATABASE](/images/7.png)
-![CREATE DATABASE](/images/8.png)
+![CREATE DATABASE](https://github.com/henry5720/WeHelp-Assignments/blob/main/week-5/images/3.png)
+![CREATE DATABASE](https://github.com/henry5720/WeHelp-Assignments/blob/main/week-5/images/4.png)
+![CREATE DATABASE](https://github.com/henry5720/WeHelp-Assignments/blob/main/week-5/images/5.png)
+![CREATE DATABASE](https://github.com/henry5720/WeHelp-Assignments/blob/main/week-5/images/6.png)
+![CREATE DATABASE](https://github.com/henry5720/WeHelp-Assignments/blob/main/week-5/images/7.png)
+![CREATE DATABASE](https://github.com/henry5720/WeHelp-Assignments/blob/main/week-5/images/8.png)
 
 #### 要求四：SQL Aggregate Functions
 
@@ -82,8 +82,8 @@ SELECT SUM(`follower_count`) FROM `member`;
 -- 3. 取得 member 資料表中，所有會員 follower_count 欄位的平均數。
 SELECT AVG(`follower_count`) FROM `member`;
 ```
-![CREATE DATABASE](/images/9.png)
-![CREATE DATABASE](/images/10.png)
+![CREATE DATABASE](https://github.com/henry5720/WeHelp-Assignments/blob/main/week-5/images/9.png)
+![CREATE DATABASE](https://github.com/henry5720/WeHelp-Assignments/blob/main/week-5/images/10.png)
 
 #### 要求五：SQL JOIN (Optional)
 
@@ -118,12 +118,12 @@ FROM `member` RIGHT JOIN `massage`
 ON `member`.`id` = `massage`.`member_id`
 WHERE `member`.`username` = 'test';
 ```
-![CREATE DATABASE](/images/11.png)
-![CREATE DATABASE](/images/12.png)
-![CREATE DATABASE](/images/13.png)
-![CREATE DATABASE](/images/14.png)
-![CREATE DATABASE](/images/15.png)
-![CREATE DATABASE](/images/16.png)
+![CREATE DATABASE](https://github.com/henry5720/WeHelp-Assignments/blob/main/week-5/images/11.png)
+![CREATE DATABASE](https://github.com/henry5720/WeHelp-Assignments/blob/main/week-5/images/12.png)
+![CREATE DATABASE](https://github.com/henry5720/WeHelp-Assignments/blob/main/week-5/images/13.png)
+![CREATE DATABASE](https://github.com/henry5720/WeHelp-Assignments/blob/main/week-5/images/14.png)
+![CREATE DATABASE](https://github.com/henry5720/WeHelp-Assignments/blob/main/week-5/images/15.png)
+![CREATE DATABASE](https://github.com/henry5720/WeHelp-Assignments/blob/main/week-5/images/16.png)
 
 
 
