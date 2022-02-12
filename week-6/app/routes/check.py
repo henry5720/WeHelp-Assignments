@@ -1,7 +1,7 @@
 # 引入模組
 from flask import * 
-import mysql.connector
 from .. import config
+import mysql.connector
 
 # 設定藍圖
 check_bp=Blueprint("check", __name__)
