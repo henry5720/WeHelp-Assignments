@@ -36,29 +36,27 @@ def signin():
     # 鼠標物件
     cursor = connection.cursor() 
 
-    # SQL 語句 > [取出] 帳密
+    # SQL 語句 > 如果輸入的帳密存在 返回 id
     cursor.execute(
-        """
-        SELECT `username`, `password` 
-        FROM `member`;
-        """
+                """
+                    SELECT `id` 
+                    FROM `member`
+                    WHERE `username` = '%s'
+                    AND `password` = '%s'
+                """ %(username,password)
     )
-    # 取出值 存到 records / lsit[(tuple),(tuple)]
+    # 取出值 存到 records
     records = cursor.fetchall()
     # print(records) # 列表
-    """ 列表裡的每個元組
-        for i in records:
-            print(i) 
-    """
     
     """ List Comprehension
         dataUser = []
         for user in records:
         dataUser.append(user[0])
+        tuple第一個 > 加進dataUser (帳號)
+        dataUser = [user[0] for user in records]
+        dataPwd = [user[1] for user in records]
     """
-    # tuple第一個 > 加進dataUser (帳號)
-    dataUser = [user[0] for user in records]
-    dataPwd = [user[1] for user in records]
 
     # SQL 語句 佔位符(%s %d %f) > [處理] 會員頁 自訂歡迎語 
     sql = "SELECT `name` FROM `member` WHERE `username` = %s"
@@ -72,12 +70,13 @@ def signin():
     connection.close() # 關閉連線
 
 
-    # 輸入的帳密是否存在 dataUser, password (第20,21行)
-    if username in dataUser and password in dataPwd:
-        session["login"] = nameRecord[0][0] # name(第69行)
-        print(session["login"])
+    # 輸入的帳密是否存在 > records(49行) 不存在相符就是[空列表]
+    if records!=[]:
+        # name(第66行) 處理用戶名
+        session["login"] = nameRecord[0][0] 
+        # print(session["login"])
         return redirect("/member/")
-    # 如果輸入是空 (前端預設: username, password)
+    # 如果輸入帳密皆空 (前端預設: username, password)
     elif username=="username" and password=="password":
         inform="input can not be empty."
         return redirect("/error/?massage="+inform)
