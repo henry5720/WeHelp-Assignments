@@ -35,11 +35,8 @@ def signup():
         )
         # 取出值 存到 records
         records = cursor.fetchall()
-        print(nickname)
-        print(username)
-        print(password)
-        print(records)
-        print(len(records))
+        # print(records)
+        # print(len(records))
 
     """ 如果 用戶有輸入內容 and 帳號已存在 > 跳轉錯誤頁
         用戶有輸入內容: 暱稱 and 密碼 不為空值 (前端預設)
