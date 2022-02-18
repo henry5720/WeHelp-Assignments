@@ -32,7 +32,7 @@ def check():
     # SQL 語句 > 如果輸入的帳密存在 返回 id
     cursor.execute(
                 """
-                    SELECT `id` 
+                    SELECT `name`
                     FROM `member`
                     WHERE `username` = '%s'
                     AND `password` = '%s'
@@ -41,7 +41,7 @@ def check():
     # 取出值 存到 records
     records = cursor.fetchall()
     # print(records) # 列表
-    
+    print(records[0][0])
     """ List Comprehension
         dataUser = []
         for user in records:
@@ -51,14 +51,6 @@ def check():
         dataPwd = [user[1] for user in records]
     """
 
-    # SQL 語句 佔位符(%s %d %f) > [處理] 會員頁 自訂歡迎語 
-    sql = "SELECT `name` FROM `member` WHERE `username` = %s"
-    val = (username,) # %s的值
-    cursor.execute(sql, val)
-    # 結果 > nameRecord
-    nameRecord = cursor.fetchall()
-    print(nameRecord)
-
     cursor.close() # 關閉鼠標
     connection.close() # 關閉連線
 
@@ -66,7 +58,7 @@ def check():
     # 輸入的帳密是否存在 > records(49行) 不存在相符就是[空列表]
     if records!=[]:
         # name(第66行) 處理用戶名
-        session["login"] = nameRecord[0][0] 
+        session["login"] = records[0][0] 
         # print(session["login"])
         return redirect("/member/")
     # 如果輸入帳密皆空 (前端預設: username, password)
