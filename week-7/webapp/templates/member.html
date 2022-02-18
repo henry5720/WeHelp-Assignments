@@ -83,14 +83,10 @@
         // 2. 註冊事件
         sh.addEventListener("click", () => {
             // console.log(user.value);
-            fetch("http://127.0.0.1:3000/api/members", {
-                method: "POST",
-                body: JSON.stringify({username: user.value}),
-                headers: {
-                    "Content-Type": "application/json"
-                },
-            })
-            .then(response => response.json())
+            // url + query string (使用者輸入的值)
+            fetch("http://127.0.0.1:3000/api/members?username="+user.value)
+            // 將回傳的 Promise 轉成 json
+            .then(response => (response.json()))
             .then(userData => {
                 // console.log(userData);
                 // console.log(userData.data);
