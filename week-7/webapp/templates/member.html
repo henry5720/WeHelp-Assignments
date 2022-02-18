@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>memberPage</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+        }
+        .box {
+            margin: 180px auto;
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            justify-content: center;            
+        }
+        h3 {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 400;
+            /* background-color: antiquewhite; */
+        }
+        h5 {
+            text-align: center;
+            font-weight: 400;
+
+        }
+        a {
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+        button {
+            margin: 0 auto;
+            width: 80px;
+            height: 30px;
+            cursor: pointer;
+        }
+        .search_box {
+            width: 500px;
+            margin: 100px auto;
+            display: flex;
+            justify-content: center;
+        }
+        #user {
+            margin: 0 14px;
+            margin-bottom: 10px;
+            border: none;
+            border-bottom: 1px solid #666;
+            width: 180px;
+            height: 30px;
+            color: #999;
+            outline: none;
+        }
+        #resultText {
+            width: 40%;
+            margin: 5px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h3>Hi {{ data }} , welcome to colorless world :)</h3>
+        <a href="/signout">
+            <button>logout</button>
+        </a>
+        <div class="search_box">
+            <input id="user" type="search" placeholder="username" username="username">
+            <button id="sh">search</button>
+            <h5 id="resultText">Find other users</h5>
+        </div>
+    </div>
+    <script> // 提取input資料 > fetch /api/members
+        // 1. 獲取元素
+        const user = document.querySelector("#user");
+        const sh = document.querySelector("#sh");
+        const result = document.querySelector("#resultText");
+        // 2. 註冊事件
+        sh.addEventListener("click", () => {
+            // console.log(user.value);
+            fetch("http://127.0.0.1:3000/api/members", {
+                method: "POST",
+                body: JSON.stringify({username: user.value}),
+                headers: {
+                    "Content-Type": "application/json"
+                },
+            })
+            .then(response => response.json())
+            .then(userData => {
+                // console.log(userData);
+                // console.log(userData.data);
+                if(userData.data != "null") {
+                    nickname=userData.data.name
+                    account=userData.data.username
+                    result.innerHTML = nickname+"("+account+")";
+                }
+                else {
+                    result.innerHTML = "Cannot find the user.";
+                }
+            })
+        });
+        
+        user.onfocus = function() {
+            if (this.placeholder === "username") {
+                this.placeholder = ""; 
+            }
+            this.style.color = "#333";
+        user.onblur = function() {
+            if (this.placeholder === "") {
+                this.placeholder = "username";
+            }
+            this.style.color = "#999";
+            }
+        }
+    </script>
+</body>
+</html>
