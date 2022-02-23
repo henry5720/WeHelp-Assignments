@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>memberPage</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+        }
+        .box {
+            margin: 300px auto;
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            justify-content: center;            
+        }
+        h3 {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 400;
+            /* background-color: antiquewhite; */
+        }
+        a {
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+        button {
+            width: 80px;
+            height: 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h3>Hi {{ data }} , welcome to colorless world :)</h3>
+        <a href="/signout">
+            <button>logout</button>
+        </a>    
+    </div>
+</body>
+</html>

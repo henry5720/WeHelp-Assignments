@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        console.time("label")
+
+        function getData() {
+            return new Promise(function(reslove, reject) {
+                let req = new XMLHttpRequest();
+                req.open("get", "https://training.pada-x.com/resources/javascript-es6-react/data.out");
+                req.onload = function() {
+                    reslove(this.responseText);
+                }
+                req.onerror = function() {
+                    reject("Error");
+                };
+                req.send();
+            });
+        }
+        let promise = getData();
+        // promise.then(function(result) {
+        //     alert(result);
+        // }, function(error) {
+        //     alert(error);
+        // });
+        
+        //promise > then(reslove) or catch(reject)
+        promise.then(function(result) {
+            alert(result);
+        }).catch(function(error) {
+            alert(error);
+        });
+
+        console.timeEnd("label")
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
